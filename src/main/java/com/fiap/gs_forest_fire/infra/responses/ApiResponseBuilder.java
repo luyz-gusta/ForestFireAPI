@@ -1,8 +1,8 @@
 package com.fiap.gs_forest_fire.infra.responses;
 
-import com.fiap.dasa_api.infra.responses.details.ApiListResponse;
-import com.fiap.dasa_api.infra.responses.details.ApiMessageResponse;
-import com.fiap.dasa_api.infra.responses.details.ApiSingleResponse;
+import com.fiap.gs_forest_fire.infra.responses.details.ApiListResponse;
+import com.fiap.gs_forest_fire.infra.responses.details.ApiMessageResponse;
+import com.fiap.gs_forest_fire.infra.responses.details.ApiSingleResponse;
 
 import java.util.List;
 

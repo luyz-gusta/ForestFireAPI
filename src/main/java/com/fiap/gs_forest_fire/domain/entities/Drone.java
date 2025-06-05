@@ -1,5 +1,8 @@
 package com.fiap.gs_forest_fire.domain.entities;
 
+import com.fiap.gs_forest_fire.domain.dto.drone.RequestDroneDTO;
+import com.fiap.gs_forest_fire.domain.dto.drone.UpdateDroneDTO;
+import com.fiap.gs_forest_fire.domain.dto.equipment.UpdateEquipmentDTO;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -25,7 +28,7 @@ public class Drone {
     private String location;
     @Basic
     @Column(name = "status", nullable = false)
-    private Object status;
+    private String status;
     @Basic
     @Column(name = "date_created", nullable = true)
     private Timestamp dateCreated;
@@ -36,7 +39,7 @@ public class Drone {
     public Drone() {
     }
 
-    public Drone(long idDrone, String name, String cod, String battery, String location, Object status, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Drone(long idDrone, String name, String cod, String battery, String location, String status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idDrone = idDrone;
         this.name = name;
         this.cod = cod;
@@ -45,6 +48,22 @@ public class Drone {
         this.status = status;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Drone(RequestDroneDTO droneDTO){
+        this.name = droneDTO.getName();
+        this.cod = droneDTO.getCod();
+        this.battery = droneDTO.getBattery();
+        this.location = droneDTO.getLocation();
+        this.status = droneDTO.getStatus();
+    }
+
+    public void setUpdatedDrone(UpdateDroneDTO equipmentDTO) {
+        this.name = equipmentDTO.getName();
+        this.cod = equipmentDTO.getCod();
+        this.battery = equipmentDTO.getBattery();
+        this.location = equipmentDTO.getLocation();
+        this.status = equipmentDTO.getStatus();
     }
 
     public long getIdDrone() {
@@ -87,11 +106,11 @@ public class Drone {
         this.location = location;
     }
 
-    public Object getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Object status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

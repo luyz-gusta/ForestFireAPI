@@ -36,7 +36,7 @@ public class Team {
     private int quantityVehicle;
     @Basic
     @Column(name = "status", nullable = false)
-    private Object status;
+    private String status;
     @Basic
     @Column(name = "date_created", nullable = true)
     private Timestamp dateCreated;
@@ -49,7 +49,7 @@ public class Team {
 
     public Team() {}
 
-    public Team(long idTeam, Login login, String name, String codName, String locationName, Timestamp lastAccess, int quantityMembers, int quantityVehicle, Object status, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Team(long idTeam, Login login, String name, String codName, String locationName, Timestamp lastAccess, int quantityMembers, int quantityVehicle, String status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idTeam = idTeam;
         this.login = login;
         this.name = name;
@@ -148,11 +148,11 @@ public class Team {
         this.quantityVehicle = quantityVehicle;
     }
 
-    public Object getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(Object status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 

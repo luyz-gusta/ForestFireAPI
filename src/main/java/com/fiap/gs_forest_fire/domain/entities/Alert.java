@@ -19,7 +19,7 @@ public class Alert {
     private String description;
     @Basic
     @Column(name = "alert_type", nullable = false)
-    private Object alertType;
+    private String alertType;
 
     @Basic
     @Column(name = "date_created", nullable = true)
@@ -31,7 +31,7 @@ public class Alert {
     public Alert() {
     }
 
-    public Alert(long idAlert, long idSeverity, String description, Object alertType, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Alert(long idAlert, long idSeverity, String description, String alertType, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idAlert = idAlert;
         this.idSeverity = idSeverity;
         this.description = description;
@@ -80,11 +80,11 @@ public class Alert {
         this.description = description;
     }
 
-    public Object getAlertType() {
+    public String getAlertType() {
         return alertType;
     }
 
-    public void setAlertType(Object alertType) {
+    public void setAlertType(String alertType) {
         this.alertType = alertType;
     }
 }

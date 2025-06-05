@@ -18,7 +18,9 @@ public class UpdateTeamDTO {
     @NotNull
     private Long idTeam;
 
+    @NotBlank(message = "Status is required")
     @NotNull
+    @Schema(example = "Ativo", requiredMode = Schema.RequiredMode.REQUIRED)
     private String status;
 
     @NotBlank(message = "Name is required")

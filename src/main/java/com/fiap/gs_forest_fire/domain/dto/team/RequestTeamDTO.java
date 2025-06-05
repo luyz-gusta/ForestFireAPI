@@ -16,9 +16,6 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class RequestTeamDTO {
 
-    @NotNull
-    private Boolean status;
-
     @NotBlank(message = "Name is required")
     @NotNull
     @Schema(example = "Time de bombeiros", requiredMode = Schema.RequiredMode.REQUIRED)
@@ -33,6 +30,11 @@ public class RequestTeamDTO {
     @NotNull
     @Schema(example = "São Paulo", requiredMode = Schema.RequiredMode.REQUIRED)
     private String locationName;
+
+    @NotBlank(message = "Status is required")
+    @NotNull
+    @Schema(example = "Ativo", requiredMode = Schema.RequiredMode.REQUIRED)
+    private String status;
 
     @NotBlank(message = "City is required")
     @NotNull

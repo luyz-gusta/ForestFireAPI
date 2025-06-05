@@ -19,7 +19,7 @@ public class Severity {
     private String color;
     @Basic
     @Column(name = "status", nullable = true)
-    private Byte status;
+    private Boolean status;
     @Basic
     @Column(name = "date_created", nullable = true)
     private Timestamp dateCreated;
@@ -30,7 +30,7 @@ public class Severity {
     public Severity() {
     }
 
-    public Severity(long idSeverity, String name, String color, Byte status, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Severity(long idSeverity, String name, String color, Boolean status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idSeverity = idSeverity;
         this.name = name;
         this.color = color;
@@ -63,11 +63,11 @@ public class Severity {
         this.color = color;
     }
 
-    public Byte getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

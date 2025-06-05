@@ -1,5 +1,8 @@
 package com.fiap.gs_forest_fire.domain.entities;
 
+import com.fiap.gs_forest_fire.domain.dto.equipment.RequestEquipmentDTO;
+import com.fiap.gs_forest_fire.domain.dto.equipment.UpdateEquipmentDTO;
+import com.fiap.gs_forest_fire.domain.dto.team.UpdateTeamDTO;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -25,7 +28,7 @@ public class Equipment {
     private int quantityUsed;
     @Basic
     @Column(name = "status", nullable = true)
-    private Byte status;
+    private Boolean status;
     @Basic
     @Column(name = "date_created", nullable = true)
     private Timestamp dateCreated;
@@ -36,7 +39,7 @@ public class Equipment {
     public Equipment() {
     }
 
-    public Equipment(long idEquipment, String name, String color, int totalQuantity, int quantityUsed, Byte status, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Equipment(long idEquipment, String name, String color, int totalQuantity, int quantityUsed, Boolean status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idEquipment = idEquipment;
         this.name = name;
         this.color = color;
@@ -45,6 +48,21 @@ public class Equipment {
         this.status = status;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Equipment(RequestEquipmentDTO equipmentDTO) {
+        this.name = equipmentDTO.getName();
+        this.color = equipmentDTO.getColor();
+        this.totalQuantity = equipmentDTO.getTotalQuantity();
+        this.quantityUsed = equipmentDTO.getQuantityUsed();
+    }
+
+    public void setUpdatedEquipment(UpdateEquipmentDTO equipmentDTO) {
+        this.name = equipmentDTO.getName();
+        this.color = equipmentDTO.getColor();
+        this.totalQuantity = equipmentDTO.getTotalQuantity();
+        this.quantityUsed = equipmentDTO.getQuantityUsed();
+        this.status = equipmentDTO.getStatus();
     }
 
     public long getIdEquipment() {
@@ -87,11 +105,11 @@ public class Equipment {
         this.quantityUsed = quantityUsed;
     }
 
-    public Byte getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

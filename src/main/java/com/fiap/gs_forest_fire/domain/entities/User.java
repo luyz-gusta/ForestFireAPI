@@ -37,7 +37,7 @@ public class User {
     private Boolean status;
     @Basic
     @Column(name = "department", nullable = false)
-    private Object department;
+    private String department;
     @Basic
     @Column(name = "date_created", nullable = true)
     private Timestamp dateCreated;
@@ -52,7 +52,7 @@ public class User {
     public User() {
     }
 
-    public User(long idUser, Login login, String fullName, String photo, String phone, String city, String state, Boolean status, Object department, Timestamp dateCreated, Timestamp dateUpdated) {
+    public User(long idUser, Login login, String fullName, String photo, String phone, String city, String state, Boolean status, String department, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idUser = idUser;
         this.login = login;
         this.fullName = fullName;
@@ -150,11 +150,11 @@ public class User {
         this.status = status;
     }
 
-    public Object getDepartment() {
+    public String getDepartment() {
         return department;
     }
 
-    public void setDepartment(Object department) {
+    public void setDepartment(String department) {
         this.department = department;
     }
 

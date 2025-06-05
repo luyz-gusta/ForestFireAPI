@@ -21,7 +21,7 @@ public class Login {
     private String email;
 
     @Basic
-    @Column(name = "email", nullable = false, length = 255)
+    @Column(name = "type", nullable = false, length = 255)
     private String type;
 
     @Basic

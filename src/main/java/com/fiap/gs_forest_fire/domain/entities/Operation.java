@@ -40,7 +40,7 @@ public class Operation {
     private Integer evacuees;
     @Basic
     @Column(name = "status", nullable = true)
-    private Byte status;
+    private Boolean status;
     @Basic
     @Column(name = "date_created", nullable = true)
     private Timestamp dateCreated;
@@ -51,7 +51,7 @@ public class Operation {
     public Operation() {
     }
 
-    public Operation(long idOperation, long idSeverity, String name, String codName, String description, Timestamp startTime, Timestamp endTime, int quantityTeams, String affectedArea, Integer evacuees, Byte status, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Operation(long idOperation, long idSeverity, String name, String codName, String description, Timestamp startTime, Timestamp endTime, int quantityTeams, String affectedArea, Integer evacuees, Boolean status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idOperation = idOperation;
         this.idSeverity = idSeverity;
         this.name = name;
@@ -147,11 +147,11 @@ public class Operation {
         this.evacuees = evacuees;
     }
 
-    public Byte getStatus() {
+    public Boolean getStatus() {
         return status;
     }
 
-    public void setStatus(Byte status) {
+    public void setStatus(Boolean status) {
         this.status = status;
     }
 

@@ -21,7 +21,7 @@ public class ResponseTeamDTO {
     private Timestamp lastAccess;
     private String quantityMembers;
     private String quantityVehicle;
-    private Boolean status;
+    private String status;
     private Timestamp dateCreated;
     private Timestamp dateUpdated;
 }
