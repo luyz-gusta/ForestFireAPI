@@ -1,0 +1,120 @@
+&lt;mxfile host="app.diagrams.net" modified="2024-03-20T00:00:00.000Z" agent="Mozilla/5.0" version="21.1.9" type="device"&gt;
+  &lt;diagram id="C5RBs43oDa-KdzZeNtuy" name="Class Diagram"&gt;
+    &lt;mxGraphModel dx="1223" dy="871" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0"&gt;
+      &lt;root&gt;
+        &lt;mxCell id="WIyWlLk6GJQsqaUBKTNV-0"/&gt;
+        &lt;mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0"/&gt;
+
+        &lt;!-- User Class --&gt;
+        &lt;mxCell id="User" value="User&#xa;--&#xa;- idUser: long&#xa;- fullName: String&#xa;- photo: String&#xa;- phone: String&#xa;- city: String&#xa;- state: String&#xa;- status: Boolean&#xa;- department: String&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=180;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="40" y="40" width="200" height="200" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Login Class --&gt;
+        &lt;mxCell id="Login" value="Login&#xa;--&#xa;- idLogin: long&#xa;- email: String&#xa;- type: String&#xa;- password: String&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=140;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="320" y="40" width="200" height="160" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Team Class --&gt;
+        &lt;mxCell id="Team" value="Team&#xa;--&#xa;- idTeam: long&#xa;- name: String&#xa;- codName: String&#xa;- locationName: String&#xa;- lastAccess: Timestamp&#xa;- quantityMembers: int&#xa;- quantityVehicle: int&#xa;- status: String&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=180;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="40" y="280" width="200" height="200" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Equipment Class --&gt;
+        &lt;mxCell id="Equipment" value="Equipment&#xa;--&#xa;- idEquipment: long&#xa;- name: String&#xa;- color: String&#xa;- totalQuantity: int&#xa;- quantityUsed: int&#xa;- status: Boolean&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=160;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="320" y="280" width="200" height="180" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- TeamEquipment Class --&gt;
+        &lt;mxCell id="TeamEquipment" value="TeamEquipment&#xa;--&#xa;- idTeamEquipment: long&#xa;- idTeam: long&#xa;- idEquipment: long&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=120;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="600" y="280" width="200" height="140" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Operation Class --&gt;
+        &lt;mxCell id="Operation" value="Operation&#xa;--&#xa;- idOperation: long&#xa;- idSeverity: long&#xa;- name: String&#xa;- codName: String&#xa;- description: String&#xa;- startTime: Timestamp&#xa;- endTime: Timestamp&#xa;- quantityTeams: int&#xa;- affectedArea: String&#xa;- evacuees: Integer&#xa;- status: Boolean&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=220;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="40" y="520" width="200" height="240" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Alert Class --&gt;
+        &lt;mxCell id="Alert" value="Alert&#xa;--&#xa;- idAlert: long&#xa;- idSeverity: long&#xa;- description: String&#xa;- alertType: String&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=140;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="320" y="520" width="200" height="160" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Severity Class --&gt;
+        &lt;mxCell id="Severity" value="Severity&#xa;--&#xa;- idSeverity: long&#xa;- name: String&#xa;- color: String&#xa;- status: Boolean&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=140;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="600" y="520" width="200" height="160" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Drone Class --&gt;
+        &lt;mxCell id="Drone" value="Drone&#xa;--&#xa;- idDrone: long&#xa;- name: String&#xa;- cod: String&#xa;- battery: String&#xa;- location: String&#xa;- status: String&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=160;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="40" y="800" width="200" height="180" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Monitoring Class --&gt;
+        &lt;mxCell id="Monitoring" value="Monitoring&#xa;--&#xa;- idMonitoring: long&#xa;- idDrone: long&#xa;- temperature: Double&#xa;- humidity: Double&#xa;- airQuality: Double&#xa;- dateCreated: Timestamp&#xa;- dateUpdated: Timestamp" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=160;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="320" y="800" width="200" height="180" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Relationships --&gt;
+        &lt;!-- User - Login (1:1) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="User" target="Login"&gt;
+          &lt;mxGeometry relative="1" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+        &lt;mxCell id="" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="250" y="120" width="20" height="20" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+        &lt;mxCell id="" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="290" y="120" width="20" height="20" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Team - Login (1:1) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Team" target="Login"&gt;
+          &lt;mxGeometry relative="1" as="geometry"&gt;
+            &lt;Array as="points"&gt;
+              &lt;mxPoint x="280" y="380"/&gt;
+              &lt;mxPoint x="280" y="120"/&gt;
+            &lt;/Array&gt;
+          &lt;/mxGeometry&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Team - TeamEquipment (1:*) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Team" target="TeamEquipment"&gt;
+          &lt;mxGeometry relative="1" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+        &lt;mxCell id="" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="250" y="360" width="20" height="20" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+        &lt;mxCell id="" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="570" y="360" width="20" height="20" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Equipment - TeamEquipment (1:*) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Equipment" target="TeamEquipment"&gt;
+          &lt;mxGeometry relative="1" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Operation - Severity (1:1) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Operation" target="Severity"&gt;
+          &lt;mxGeometry relative="1" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Alert - Severity (1:1) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Alert" target="Severity"&gt;
+          &lt;mxGeometry relative="1" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+        &lt;!-- Drone - Monitoring (1:*) --&gt;
+        &lt;mxCell id="" style="endArrow=none;html=1;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="Drone" target="Monitoring"&gt;
+          &lt;mxGeometry relative="1" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+        &lt;mxCell id="" value="1" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="250" y="880" width="20" height="20" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+        &lt;mxCell id="" value="*" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1"&gt;
+          &lt;mxGeometry x="290" y="880" width="20" height="20" as="geometry"/&gt;
+        &lt;/mxCell&gt;
+
+      &lt;/root&gt;
+    &lt;/mxGraphModel&gt;
+  &lt;/diagram&gt;
+&lt;/mxfile&gt; 
