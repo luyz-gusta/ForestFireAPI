@@ -76,7 +76,7 @@ public class TeamController implements TeamControllerSpecs {
         try {
             ResponseTeamDTO team = service.editTeam(teamDTO);
 
-            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(team));
+            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(team));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }

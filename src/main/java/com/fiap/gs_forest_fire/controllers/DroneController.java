@@ -28,9 +28,9 @@ public class DroneController implements DroneControllerSpecs {
     @GetMapping
     public ResponseEntity<ApiListResponse<Drone>> getAllDrones() {
         try {
-            List<Drone> equipments = service.listAllDrones();
+            List<Drone> drones = service.listAllDrones();
 
-            return ResponseEntity.ok(ApiResponseBuilder.listSuccess(equipments));
+            return ResponseEntity.ok(ApiResponseBuilder.listSuccess(drones));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }
@@ -40,8 +40,8 @@ public class DroneController implements DroneControllerSpecs {
     @GetMapping("/active")
     public ResponseEntity<ApiListResponse<Drone>> getAllDronesByActive() {
         try {
-            List<Drone> equipments = service.listDronesActive();
-            return ResponseEntity.ok(ApiResponseBuilder.listSuccess(equipments));
+            List<Drone> drones = service.listDronesActive();
+            return ResponseEntity.ok(ApiResponseBuilder.listSuccess(drones));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }
@@ -76,7 +76,7 @@ public class DroneController implements DroneControllerSpecs {
         try {
             Drone drone = service.editDrone(equipmentDTO);
 
-            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(drone));
+            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(drone));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }

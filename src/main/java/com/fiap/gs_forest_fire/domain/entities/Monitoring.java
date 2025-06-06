@@ -12,9 +12,6 @@ public class Monitoring {
     @Column(name = "id_monitoring", nullable = false)
     private long idMonitoring;
     @Basic
-    @Column(name = "id_drone", nullable = false)
-    private long idDrone;
-    @Basic
     @Column(name = "temperature", nullable = false, precision = 2)
     private Double temperature;
     @Basic
@@ -31,17 +28,29 @@ public class Monitoring {
     @Column(name = "date_updated", nullable = true)
     private Timestamp dateUpdated;
 
+    @ManyToOne
+    @JoinColumn(name = "id_drone")
+    private Drone drone;
+
     public Monitoring() {
     }
 
-    public Monitoring(long idMonitoring, long idDrone, Double temperature, Double humidity, Double airQuality, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Monitoring(long idMonitoring, Drone drone, Double temperature, Double humidity, Double airQuality, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idMonitoring = idMonitoring;
-        this.idDrone = idDrone;
+        this.drone = drone;
         this.temperature = temperature;
         this.humidity = humidity;
         this.airQuality = airQuality;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Drone getDrone() {
+        return drone;
+    }
+
+    public void setDrone(Drone drone) {
+        this.drone = drone;
     }
 
     public Timestamp getDateCreated() {
@@ -68,13 +77,6 @@ public class Monitoring {
         this.idMonitoring = idMonitoring;
     }
 
-    public long getIdDrone() {
-        return idDrone;
-    }
-
-    public void setIdDrone(long idDrone) {
-        this.idDrone = idDrone;
-    }
 
     public Double getTemperature() {
         return temperature;

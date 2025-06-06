@@ -1,5 +1,8 @@
 package com.fiap.gs_forest_fire.domain.entities;
 
+import com.fiap.gs_forest_fire.domain.dto.alert.RequestAlertDTO;
+import com.fiap.gs_forest_fire.domain.dto.alert.UpdateAlertDTO;
+import com.fiap.gs_forest_fire.domain.dto.equipment.UpdateEquipmentDTO;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -11,9 +14,7 @@ public class Alert {
     @Id
     @Column(name = "id_alert", nullable = false)
     private long idAlert;
-    @Basic
-    @Column(name = "id_severity", nullable = false)
-    private long idSeverity;
+
     @Basic
     @Column(name = "description", nullable = false, length = -1)
     private String description;
@@ -28,16 +29,32 @@ public class Alert {
     @Column(name = "date_updated", nullable = true)
     private Timestamp dateUpdated;
 
+    @ManyToOne
+    @JoinColumn(name = "id_severity")
+    private Severity severity;
+
     public Alert() {
     }
 
-    public Alert(long idAlert, long idSeverity, String description, String alertType, Timestamp dateCreated, Timestamp dateUpdated) {
+    public Alert(long idAlert, Severity severity, String description, String alertType, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idAlert = idAlert;
-        this.idSeverity = idSeverity;
+        this.severity = severity;
         this.description = description;
         this.alertType = alertType;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Alert(RequestAlertDTO alertDTO, Severity severity){
+        this.severity = severity;
+        this.description = alertDTO.getDescription();
+        this.alertType = alertDTO.getAlertType();
+    }
+
+    public void setUpdatedAlert(UpdateAlertDTO alertDTO, Severity severity) {
+        this.severity = severity;
+        this.description = alertDTO.getDescription();
+        this.alertType = alertDTO.getAlertType();
     }
 
     public Timestamp getDateCreated() {
@@ -64,12 +81,12 @@ public class Alert {
         this.idAlert = idAlert;
     }
 
-    public long getIdSeverity() {
-        return idSeverity;
+    public Severity getIdSeverity() {
+        return severity;
     }
 
-    public void setIdSeverity(long idSeverity) {
-        this.idSeverity = idSeverity;
+    public void setIdSeverity(Severity severity) {
+        this.severity = severity;
     }
 
     public String getDescription() {

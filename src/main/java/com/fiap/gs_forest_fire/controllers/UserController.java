@@ -78,7 +78,7 @@ public class UserController implements UserControllerSpecs {
         try {
             ResponseUserDTO user = service.editUser(userDTO);
 
-            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(user));
+            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(user));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }

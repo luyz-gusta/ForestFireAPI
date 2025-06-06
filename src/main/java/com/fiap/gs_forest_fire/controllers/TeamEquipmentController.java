@@ -66,7 +66,7 @@ public class TeamEquipmentController implements TeamEquipmentControllerSpecs {
         try {
             TeamEquipment teamEquipment = service.editTeamEquipment(teamEquipmentDTO);
 
-            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(teamEquipment));
+            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(teamEquipment));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }

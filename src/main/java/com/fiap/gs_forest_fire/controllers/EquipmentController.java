@@ -76,7 +76,7 @@ public class EquipmentController implements EquipmentControllerSpecs {
         try {
             Equipment equipment = service.editEquipment(equipmentDTO);
 
-            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(equipment));
+            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(equipment));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }

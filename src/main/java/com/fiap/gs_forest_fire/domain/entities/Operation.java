@@ -12,9 +12,6 @@ public class Operation {
     @Column(name = "id_operation", nullable = false)
     private long idOperation;
     @Basic
-    @Column(name = "id_severity", nullable = false)
-    private long idSeverity;
-    @Basic
     @Column(name = "name", nullable = false, length = 200)
     private String name;
     @Basic
@@ -48,12 +45,16 @@ public class Operation {
     @Column(name = "date_updated", nullable = true)
     private Timestamp dateUpdated;
 
+    @ManyToOne
+    @JoinColumn(name = "id_severity")
+    private Severity severity;
+
     public Operation() {
     }
 
     public Operation(long idOperation, long idSeverity, String name, String codName, String description, Timestamp startTime, Timestamp endTime, int quantityTeams, String affectedArea, Integer evacuees, Boolean status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idOperation = idOperation;
-        this.idSeverity = idSeverity;
+        this.severity = severity;
         this.name = name;
         this.codName = codName;
         this.description = description;
@@ -75,12 +76,12 @@ public class Operation {
         this.idOperation = idOperation;
     }
 
-    public long getIdSeverity() {
-        return idSeverity;
+    public Severity getIdSeverity() {
+        return severity;
     }
 
-    public void setIdSeverity(long idSeverity) {
-        this.idSeverity = idSeverity;
+    public void setIdSeverity(Severity severity) {
+        this.severity = severity;
     }
 
     public String getName() {
