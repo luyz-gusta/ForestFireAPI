@@ -1,5 +1,8 @@
 package com.fiap.gs_forest_fire.domain.entities;
 
+import com.fiap.gs_forest_fire.domain.dto.monitoring.RequestMonitoringDTO;
+import com.fiap.gs_forest_fire.domain.dto.monitoring.UpdateMonitoringDTO;
+import com.fiap.gs_forest_fire.domain.dto.severity.UpdateSeverityDTO;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -43,6 +46,20 @@ public class Monitoring {
         this.airQuality = airQuality;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Monitoring(RequestMonitoringDTO monitoringDTO, Drone drone){
+        this.drone = drone;
+        this.temperature = monitoringDTO.getTemperature();
+        this.humidity = monitoringDTO.getHumidity();
+        this.airQuality = monitoringDTO.getAirQuality();
+    }
+
+    public void setUpdatedMonitoring(UpdateMonitoringDTO monitoringDTO, Drone drone){
+        this.drone = drone;
+        this.temperature = monitoringDTO.getTemperature();
+        this.humidity = monitoringDTO.getHumidity();
+        this.airQuality = monitoringDTO.getAirQuality();
     }
 
     public Drone getDrone() {

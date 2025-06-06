@@ -1,5 +1,7 @@
 package com.fiap.gs_forest_fire.domain.entities;
 
+import com.fiap.gs_forest_fire.domain.dto.operation.RequestOperationDTO;
+import com.fiap.gs_forest_fire.domain.dto.operation.UpdateOperationDTO;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -54,7 +56,6 @@ public class Operation {
 
     public Operation(long idOperation, long idSeverity, String name, String codName, String description, Timestamp startTime, Timestamp endTime, int quantityTeams, String affectedArea, Integer evacuees, Boolean status, Timestamp dateCreated, Timestamp dateUpdated) {
         this.idOperation = idOperation;
-        this.severity = severity;
         this.name = name;
         this.codName = codName;
         this.description = description;
@@ -66,6 +67,32 @@ public class Operation {
         this.status = status;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Operation(RequestOperationDTO operationDTO, Severity severity) {
+        this.severity = severity;
+        this.name = operationDTO.getName();
+        this.codName = operationDTO.getCodName();
+        this.description = operationDTO.getDescription();
+        this.startTime = operationDTO.getStartTime();
+        this.endTime = operationDTO.getEndTime();
+        this.quantityTeams = operationDTO.getQuantityTeams();
+        this.affectedArea = operationDTO.getAffectedArea();
+        this.evacuees = operationDTO.getEvacuees();
+        this.status = true;
+    }
+
+    public void setUpdatedOperation(UpdateOperationDTO operationDTO, Severity severity){
+        this.severity = severity;
+        this.name = operationDTO.getName();
+        this.codName = operationDTO.getCodName();
+        this.description = operationDTO.getDescription();
+        this.startTime = operationDTO.getStartTime();
+        this.endTime = operationDTO.getEndTime();
+        this.quantityTeams = operationDTO.getQuantityTeams();
+        this.affectedArea = operationDTO.getAffectedArea();
+        this.evacuees = operationDTO.getEvacuees();
+        this.status = true;
     }
 
     public long getIdOperation() {

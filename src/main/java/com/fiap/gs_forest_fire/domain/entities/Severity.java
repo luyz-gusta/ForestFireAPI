@@ -1,5 +1,7 @@
 package com.fiap.gs_forest_fire.domain.entities;
 
+import com.fiap.gs_forest_fire.domain.dto.severity.RequestSeverityDTO;
+import com.fiap.gs_forest_fire.domain.dto.severity.UpdateSeverityDTO;
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
@@ -34,9 +36,21 @@ public class Severity {
         this.idSeverity = idSeverity;
         this.name = name;
         this.color = color;
-        this.status = status;
+        this.status = true;
         this.dateCreated = dateCreated;
         this.dateUpdated = dateUpdated;
+    }
+
+    public Severity(RequestSeverityDTO severityDTO) {
+        this.name = severityDTO.getName();
+        this.color = severityDTO.getColor();
+        this.status = true;
+    }
+
+    public void setUpdatedSeverity(UpdateSeverityDTO severityDTO){
+        this.name = severityDTO.getName();
+        this.color = severityDTO.getColor();
+        this.status = severityDTO.getStatus();
     }
 
     public long getIdSeverity() {

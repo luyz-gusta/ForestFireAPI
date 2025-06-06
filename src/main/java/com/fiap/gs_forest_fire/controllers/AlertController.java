@@ -39,8 +39,8 @@ public class AlertController implements AlertControllerSpecs {
     @GetMapping("/{id}")
     public ResponseEntity<ApiSingleResponse<Alert>> getAlertById(@PathVariable Long id) {
         try {
-            Alert drone = service.listAlertById(id);
-            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(drone));
+            Alert alert = service.listAlertById(id);
+            return ResponseEntity.ok(ApiResponseBuilder.singleSuccess(alert));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }
@@ -51,9 +51,9 @@ public class AlertController implements AlertControllerSpecs {
             @RequestBody @Valid RequestAlertDTO alertDTO
     ) {
         try {
-            Alert drone = service.saveAlert(alertDTO);
+            Alert alert = service.saveAlert(alertDTO);
 
-            return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponseBuilder.singleCreate(drone));
+            return ResponseEntity.status(HttpStatus.CREATED).body(ApiResponseBuilder.singleCreate(alert));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }
@@ -63,9 +63,9 @@ public class AlertController implements AlertControllerSpecs {
     @Transactional
     public ResponseEntity<ApiSingleResponse<Alert>> updateAlert(@RequestBody @Valid UpdateAlertDTO alertDTO) {
         try {
-            Alert drone = service.editAlert(alertDTO);
+            Alert alert = service.editAlert(alertDTO);
 
-            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(drone));
+            return ResponseEntity.ok(ApiResponseBuilder.singleUpdate(alert));
         } catch (Exception exp) {
             throw new InternalException(exp);
         }
